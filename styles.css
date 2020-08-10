@@ -1,0 +1,259 @@
+html {
+  overflow-y: hidden;
+}
+
+.container {
+  display: grid;
+  grid-template-rows: 7% 83% 10%;
+  align-items: center;
+  width: 100%;
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+}
+
+.weather-container {
+  display: grid;
+  grid-template-rows: 25% 75%;
+  height: 100%;
+  justify-items: center;
+  align-items: center;
+}
+
+#nav-header {
+  width: 100%;
+  background: rgb(38, 41, 54, 0.9);
+  height: 2em;
+  color: white;
+  padding: 0.9em 0em 0.2em 0.5em;
+}
+
+#success,
+#failed {
+  margin-left: 1em;
+  font-size: 1.2em;
+  padding: 0.6em 0.6em 0.6em 0.6em;
+  position: absolute;
+  visibility: hidden;
+  bottom: 1%;
+}
+
+#success button,
+#failed button {
+  border: none;
+  outline: none;
+  cursor: pointer;
+}
+
+#success {
+  width: 12%;
+  background: green;
+  color: white;
+}
+
+#success button {
+  background-color: green;
+}
+
+#failed {
+  width: 17%;
+  background: red;
+  color: white;
+}
+
+#failed button {
+  background-color: red;
+}
+
+.forecast-table {
+  display: flex;
+  justify-content: center;
+  align-self: flex-start;
+}
+
+.forecast-container {
+  background: rgb(38, 41, 54, 0.9);
+  width: 70%;
+  height: 50%;
+  display: grid;
+  grid-template-columns: repeat(5, 1fr);
+}
+
+.forecast {
+  color: white;
+  height: 100%;
+}
+
+.forecast-header {
+  width: 100%;
+  height: 18%;
+  background: rgba(0, 0, 0, 0.1);
+  font-weight: 400;
+}
+
+.forecast:nth-child(even) .forecast-header {
+  background: rgb(38, 41, 54, 1);
+}
+
+.forecast:nth-child(even) .forecast-content {
+  background: rgb(38, 41, 54, 0.8);
+}
+
+.forecast-content {
+  text-align: left;
+  height: 82%;
+  padding: 0em 0.8em 0em 0.8em;
+}
+
+.day {
+  padding: 1em 0em 1.8em 0.8em;
+}
+
+.location {
+  color: rgb(255, 255, 255);
+  margin-bottom: 1.2em;
+}
+
+.temp {
+  font-size: 1.8em;
+  margin-bottom: 0.6em;
+}
+
+.horizontal {
+  font-weight: bold;
+  margin-bottom: 0.8em;
+}
+
+.weather-items li {
+  padding: 0.2em 0em 0.2em 0em;
+}
+
+.group {
+  position: relative;
+}
+
+input {
+  font-size: 18px;
+  padding: 10px 10px 10px 10px;
+  display: block;
+  width: 300px;
+  border: none;
+  border-bottom: 1px solid #757575;
+}
+
+input:focus {
+  outline: none;
+}
+
+label {
+  color: #999;
+  font-size: 18px;
+  font-weight: normal;
+  position: absolute;
+  pointer-events: none;
+  left: 5px;
+  top: 10px;
+  transition: 0.2s ease all;
+  -moz-transition: 0.2s ease all;
+  -webkit-transition: 0.2s ease all;
+}
+
+input:focus ~ label,
+input:valid ~ label {
+  top: -20px;
+  font-size: 14px;
+  color: #5264ae;
+}
+
+.bar {
+  position: relative;
+  display: block;
+  width: 320px;
+}
+
+.bar:before,
+.bar:after {
+  content: '';
+  height: 2px;
+  width: 0;
+  bottom: 1px;
+  position: absolute;
+  background: #5264ae;
+  transition: 0.3s ease all;
+  -moz-transition: 0.3s ease all;
+  -webkit-transition: 0.3s ease all;
+}
+
+.bar:before {
+  left: 0%;
+}
+
+input:focus ~ .bar:before,
+input:focus ~ .bar:after {
+  width: 100%;
+}
+
+.highlight {
+  position: absolute;
+  height: 60%;
+  width: 100px;
+  top: 25%;
+  left: 0;
+  pointer-events: none;
+  opacity: 0.5;
+}
+
+input:focus ~ .highlight {
+  -webkit-animation: inputHighlighter 0.3s ease;
+  animation: inputHighlighter 0.3s ease;
+}
+
+@-webkit-keyframes inputHighlighter {
+  from {
+    background: #5264ae;
+  }
+  to {
+    width: 0;
+    background: transparent;
+  }
+}
+@keyframes inputHighlighter {
+  from {
+    background: #5264ae;
+  }
+  to {
+    width: 0;
+    background: transparent;
+  }
+}
+
+@media (max-width: 460px) {
+  .forecast-container {
+    overflow-x: auto;
+    display: grid;
+    grid-template-columns: repeat(5, 100%);
+  }
+
+  form {
+    width: 90%;
+  }
+
+  .group {
+    width: 100%;
+  }
+
+  input {
+    width: 90%;
+  }
+
+  .bar {
+    width: 98%;
+  }
+}
+
+@media (max-width: 780px) {
+  .forecast-container {
+    width: 95vw;
+  }
+}

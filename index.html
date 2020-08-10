@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <title>Weather</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="styles.css" />
+    <link rel="stylesheet" href="reset.css" />
+  </head>
+  <body>
+    <div class="container">
+      <div id="nav-header">Weather App</div>
+      <div class="weather-container">
+        <form>
+          <div class="group">
+            <input type="text" autocomplete="off" class="search" required />
+            <span class="highlight"></span>
+            <span class="bar"></span>
+            <label>Search city</label>
+          </div>
+        </form>
+        <div class="forecast-table">
+          <div class="forecast-container"></div>
+        </div>
+      </div>
+      <div id="notifications">
+        <div id="success">
+          Got your location
+          <button>x</button>
+        </div>
+        <div id="failed">
+          Failed to get your location
+          <button>x</button>
+        </div>
+      </div>
+    </div>
+
+    <script src="main.js"></script>
+  </body>
+</html>
