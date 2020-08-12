@@ -67,6 +67,7 @@ html {
 }
 
 .forecast-table {
+  height: 70%;
   display: flex;
   justify-content: center;
   align-self: flex-start;
@@ -74,22 +75,16 @@ html {
 
 .forecast-container {
   background: rgb(38, 41, 54, 0.9);
-  width: 70%;
-  height: 50%;
+  width: 70vw;
   display: grid;
   grid-template-columns: repeat(5, 1fr);
+  color: white;
 }
 
 .forecast {
-  color: white;
+  display: grid;
+  grid-template-rows: 18% 82%;
   height: 100%;
-}
-
-.forecast-header {
-  width: 100%;
-  height: 18%;
-  background: rgba(0, 0, 0, 0.1);
-  font-weight: 400;
 }
 
 .forecast:nth-child(even) .forecast-header {
@@ -97,21 +92,23 @@ html {
 }
 
 .forecast:nth-child(even) .forecast-content {
-  background: rgb(38, 41, 54, 0.8);
+  background: rgb(38, 41, 54, 1);
+}
+
+.forecast-header {
+  height: 100%;
+  display: flex;
+  align-items: center;
+  padding-left: 0.6em;
+  background: rgba(0, 0, 0, 0.2);
 }
 
 .forecast-content {
   text-align: left;
-  height: 82%;
-  padding: 0em 0.8em 0em 0.8em;
-}
-
-.day {
-  padding: 1em 0em 1.8em 0.8em;
+  padding: 1em 0.8em 1em 0.8em;
 }
 
 .location {
-  color: rgb(255, 255, 255);
   margin-bottom: 1.2em;
 }
 
@@ -252,7 +249,7 @@ input:focus ~ .highlight {
   }
 }
 
-@media (max-width: 780px) {
+@media (max-width: 750px) {
   .forecast-container {
     width: 95vw;
   }

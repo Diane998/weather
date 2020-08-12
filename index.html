@@ -4,8 +4,8 @@
     <meta charset="UTF-8" />
     <title>Weather</title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <link rel="stylesheet" href="styles.css" />
-    <link rel="stylesheet" href="reset.css" />
+    <link rel="stylesheet" href="styles/reset.css" />
+    <link rel="stylesheet" href="styles/styles.css" />
   </head>
   <body>
     <div class="container">
@@ -35,6 +35,50 @@
       </div>
     </div>
 
-    <script src="main.js"></script>
+    <script id="weather-template" type="text/x-handlebars-template">
+      {{#each list}}
+        <div class='forecast'>
+          <div class='forecast-header'>
+            <div class='day'>
+              {{getDate dt_txt}}
+            </div>
+          </div>
+          <div class='forecast-content'>
+            {{#if location}}
+              <div class='location'>
+                {{location.name}}, {{location.country}}
+              </div>
+            {{/if}}
+            <div class='temp'>
+              {{main.temp}}°C
+            </div>
+            <div class='horizontal'>
+              <p>
+                Feels like {{main.feels_like}}°C
+              </p>
+              {{#each weather}}
+                <p>
+                  {{capitalize description}}
+                </p>
+              {{/each}}
+            </div>
+            <ul class='weather-items'>
+              <li class='wind-line'>
+                {{wind.speed}}m/s {{getWindDirection wind.deg}}
+              </li>
+              <li class='atmosperic-pressure'>
+                {{main.pressure}}hPa
+              </li>
+              <li class='humidity'>
+                Humidity: {{main.humidity}}%
+              </li>
+            </ul>
+          </div>
+        </div>
+      {{/each}}
+    </script>
+
+    <script src="src/handlebars-v4.7.6.js"></script>
+    <script src="src/main.js"></script>
   </body>
 </html>
